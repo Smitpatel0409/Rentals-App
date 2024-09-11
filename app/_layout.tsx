@@ -27,6 +27,7 @@ export default function RootLayout() {
   }, [loaded])
 
   console.log('loaded', loaded)
+  console.log('hel')
 
   if (!loaded) {
     return null
@@ -35,7 +36,7 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
