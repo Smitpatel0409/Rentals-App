@@ -26,7 +26,7 @@ export default function RootLayout() {
     }
   }, [loaded])
 
-  console.log(loaded)
+  console.log('loaded', loaded)
 
   if (!loaded) {
     return null
