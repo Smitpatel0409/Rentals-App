@@ -20,12 +20,13 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   })
 
-  console.log(loaded)
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync()
     }
   }, [loaded])
+
+  console.log(loaded)
 
   if (!loaded) {
     return null
