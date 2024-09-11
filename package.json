@@ -10,7 +10,8 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "prepare": "husky || true"
+    "prepare": "husky || true",
+    "lint-staged": "lint-staged"
   },
   "jest": {
     "preset": "jest-expo"
