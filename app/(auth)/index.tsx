@@ -4,8 +4,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const LoginScreen = () => {
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <Text style={{ color: 'white' }}>LoginScreen</Text>
+        <SafeAreaView className='flex-1'>
+            <Text className='text-blue-400 justify-center'>LoginScreen</Text>
         </SafeAreaView>
     );
 };
