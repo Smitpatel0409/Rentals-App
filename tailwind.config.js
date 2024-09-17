@@ -36,7 +36,7 @@ module.exports = {
                 rentalsPrimary: '#1246bc', // Add your custom color here
                 rentalsSecondary: '#efefef',
                 'rentals-dark-primary': '#65e3df',
-                'rentals-dark-scondary': '#292929'
+                'rentals-dark-secondary': '#292929'
             }
         }
     },

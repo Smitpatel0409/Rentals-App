@@ -25,7 +25,7 @@ const LoginScreen = () => {
                 <Text className='text-green-500'>Hellooooooooooo</Text>
             </View>
             <Image
-                className='h-44 w-44 bg-rentalsPrimary dark:bg-white'
+                className='h-44 w-44 bg-rentalsPrimary dark:bg-rentals-dark-secondary'
                 source={
                     sayHello
                         ? require('../../assets/images/react-logo.png')
