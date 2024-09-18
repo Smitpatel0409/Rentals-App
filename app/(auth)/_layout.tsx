@@ -1,5 +1,7 @@
+import React from 'react';
+import ThemeProvider from '@/contexts/ThemeProviders';
 import { useColorScheme } from '@/hooks/useColorScheme.web';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import 'react-native-reanimated';
 
