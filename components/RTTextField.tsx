@@ -13,9 +13,8 @@ type props = {
 
 const RTTextField = (props: props) => {
     const colorScheme = useColorScheme();
-    const inputStyle = `flex flex-row items-center border-[0.5px] rounded-lg h-[56px] pl-4 ${
-        colorScheme === 'dark' ? 'border-gray-300' : 'border-gray-900  bg-white'
-    }`;
+    const inputStyle =
+        'flex flex-row items-center border-[0.5px] rounded-lg h-[56px] pl-4 dark:border-gray-500 border-gray-400';
     return (
         <View className='mb-5'>
             <ThemedText className='mb-2' type='smallTitle'>
@@ -28,7 +27,7 @@ const RTTextField = (props: props) => {
                     color={`${colorScheme === 'dark' ? Colors.dark.secondaryTint : Colors.light.secondaryTint}`}
                 />
                 <TextInput
-                    className='flex-1 ml-3'
+                    className='flex-1 ml-3 text-text-light dark:text-text-dark text-lg'
                     placeholder={props.placeholder}
                     placeholderTextColor={
                         colorScheme === 'dark'

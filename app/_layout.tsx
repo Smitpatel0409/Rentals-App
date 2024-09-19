@@ -4,8 +4,11 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import '../global.css';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import RTDarkTheme from '@/utils/RTDarkTheme';
+import RTLightTheme from '@/utils/RTLightTheme';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -30,7 +33,7 @@ export default function RootLayout() {
     }
 
     return (
-        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <ThemeProvider value={colorScheme === 'dark' ? RTDarkTheme : RTLightTheme}>
             <Stack>
                 <Stack.Screen name='(auth)' options={{ headerShown: false }} />
                 <Stack.Screen name='+not-found' />
