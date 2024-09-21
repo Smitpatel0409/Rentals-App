@@ -1,4 +1,4 @@
-import { Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { Pressable, ScrollView, Text, useColorScheme, View } from 'react-native';
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HelloWave } from '@/components/HelloWave';
@@ -9,6 +9,7 @@ import RTSocialsBtn from '@/components/RTSocialsBtn';
 import { CheckBox } from '@rneui/themed';
 import { Icon } from '@rneui/base';
 import { Colors } from '@/constants/Colors';
+import { router } from 'expo-router';
 
 const LoginScreen = () => {
     const colorScheme = useColorScheme();
@@ -81,33 +82,46 @@ const LoginScreen = () => {
                             }
                         />
 
-                        <Pressable>
+                        <Pressable
+                            onPress={() => {
+                                router.push('/forgotPassword');
+                            }}
+                        >
                             <Text className='text-label-danger font-semibold'>
                                 Forgot Password?
                             </Text>
                         </Pressable>
                     </View>
 
-                    <Pressable className='bg-btn-primary flex items-center justify-center h-[60px] rounded-lg mt-12'>
-                        <Text className='text-white font-semibold text-lg'>Sign in</Text>
+                    <Pressable
+                        className='bg-btn-primary flex items-center justify-center h-[60px] rounded-lg mt-8'
+                        onPress={() => {}}
+                    >
+                        <Text className='text-btn-label-primary font-semibold text-lg'>
+                            Sign in
+                        </Text>
                     </Pressable>
 
                     <View className='flex flex-row items-center justify-center mt-5 gap-2'>
                         <Text className='text-[15px] text-label-primary font-normal'>
                             Don't have an account?
                         </Text>
-                        <Pressable>
+                        <Pressable
+                            onPress={() => {
+                                router.push('/register');
+                            }}
+                        >
                             <Text className='text-btn-primary font-semibold'>Sign up</Text>
                         </Pressable>
                     </View>
-                    <View className='flex-row items-center w-full mt-12'>
+                    <View className='flex-row items-center w-full mt-36'>
                         <RTDivider />
                         <Text className='text-label-secondary px-3 bg-background-primary'>
-                            Or Sign in with:
+                            Or Sign in with :
                         </Text>
                         <RTDivider />
                     </View>
-                    <View className='flex flex-row gap-10 items-center justify-center my-12'>
+                    <View className='flex flex-row gap-10 items-center justify-center my-8'>
                         <RTSocialsBtn iconName='google' />
                         <RTSocialsBtn iconName='apple1' />
                         <RTSocialsBtn iconName='facebook-square' />
@@ -119,5 +133,3 @@ const LoginScreen = () => {
 };
 
 export default LoginScreen;
-
-const styles = StyleSheet.create({});

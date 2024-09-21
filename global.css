@@ -15,6 +15,10 @@
     --label-danger: rgb(253, 120, 113);
 
     --btn-primary: rgb(18, 70, 188);
+    --btn-label-primary: rgb(255, 255, 255);
+
+    --border-primary: rgb(100, 100, 100);
+    --border-onfocus: black;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,5 +37,9 @@
         --label-danger: rgb(253, 120, 113);
 
         --btn-primary: rgb(101, 227, 223);
+        --btn-label-primary: rgb(41, 41, 41);
+
+        --border-primary: rgb(100, 100, 100);
+        --border-onfocus: rgb(130, 130, 130);
     }
 }

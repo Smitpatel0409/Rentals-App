@@ -12,9 +12,7 @@ const RTDivider: React.FC<DividerProps> = ({
     thickness = '0.5',
     marginVertical = '0'
 }) => {
-    return (
-        <View className={`flex-1 h-[${thickness}px] w-full bg-gray-600 my-[${marginVertical}px]`} />
-    );
+    return <View className={`flex-1 h-[0.8px] w-full bg-[#3d3d3d] my-[${marginVertical}px]`} />;
 };
 
 export default RTDivider;

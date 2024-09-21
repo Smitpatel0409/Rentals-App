@@ -1,5 +1,5 @@
 import { StyleSheet, TextInput, useColorScheme, View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemedText } from './ThemedText';
 import Feather from '@expo/vector-icons/Feather';
 import { Colors } from '@/constants/Colors';
@@ -37,8 +37,17 @@ const RTTextField = ({
     keyBoardType
 }: props) => {
     const colorScheme = useColorScheme();
-    const inputStyle =
-        'flex-row items-center border-[0.5px] rounded-lg h-[56px] pl-4 dark:border-gray-600 border-gray-600';
+    const [isFocused, setIsFocused] = useState(false);
+
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+    const handleBlur = () => {
+        setIsFocused(false);
+    };
+
+    const inputStyle = `flex-row items-center border-[0.5px] rounded-lg h-[56px] pl-4 ${isFocused ? 'border-border-onfocus border-[1px]' : 'border-border-primary'} `;
+
     return (
         <View className='mb-5'>
             <ThemedText className='mb-2' type='smallTitle'>
@@ -51,7 +60,7 @@ const RTTextField = ({
                     color={`${colorScheme === 'dark' ? Colors.dark.secondaryTint : Colors.light.secondaryTint}`}
                 />
                 <TextInput
-                    className='flex-1 px-3 text-text-light dark:text-text-dark text-lg'
+                    className='flex-1 px-3 text-label-secondary bg-transparent text-lg'
                     keyboardType={keyBoardType}
                     placeholder={placeholder}
                     placeholderTextColor={
@@ -65,6 +74,8 @@ const RTTextField = ({
                             : Colors.light.secondaryTint
                     }
                     secureTextEntry={isSecureTextEntry ?? false}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                 />
             </View>
         </View>

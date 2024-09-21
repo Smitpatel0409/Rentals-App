@@ -23,7 +23,14 @@ module.exports = {
                     secondary: 'var(--heading-secondary)'
                 },
                 btn: {
-                    primary: 'var(--btn-primary)'
+                    primary: 'var(--btn-primary)',
+                    label: {
+                        primary: 'var(--btn-label-primary)'
+                    }
+                },
+                border: {
+                    primary: 'var(--border-primary)',
+                    onfocus: 'var(--border-onfocus)'
                 }
             }
         }

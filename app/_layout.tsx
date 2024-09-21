@@ -36,7 +36,7 @@ export default function RootLayout() {
         <ThemeProvider value={colorScheme === 'dark' ? RTDarkTheme : RTLightTheme}>
             <Stack>
                 <Stack.Screen name='(auth)' options={{ headerShown: false }} />
-                <Stack.Screen name='+not-found' />
+                <Stack.Screen name='+not-found' options={{ animation: 'slide_from_bottom' }} />
             </Stack>
         </ThemeProvider>
     );
