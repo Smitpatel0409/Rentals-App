@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
+import { StyleSheet, TextInput, useColorScheme, View } from 'react-native';
 import React from 'react';
 import { ThemedText } from './ThemedText';
 import Feather from '@expo/vector-icons/Feather';
@@ -8,27 +8,52 @@ type props = {
     title: string;
     icon: keyof typeof Feather.glyphMap;
     placeholder: string;
-    secureTextEntry?: boolean;
+    isSecureTextEntry?: boolean;
+    isShowAndHidePasswordIconDisplay?: boolean;
+    keyBoardType?: KeyboardTypeOptions;
 };
 
-const RTTextField = (props: props) => {
+type KeyboardTypeOptions =
+    | 'default'
+    | 'email-address'
+    | 'numeric'
+    | 'phone-pad'
+    | 'ascii-capable'
+    | 'numbers-and-punctuation'
+    | 'url'
+    | 'number-pad'
+    | 'name-phone-pad'
+    | 'decimal-pad'
+    | 'twitter'
+    | 'web-search'
+    | 'visible-password';
+
+const RTTextField = ({
+    title,
+    icon,
+    placeholder,
+    isSecureTextEntry,
+    isShowAndHidePasswordIconDisplay,
+    keyBoardType
+}: props) => {
     const colorScheme = useColorScheme();
     const inputStyle =
-        'flex flex-row items-center border-[0.5px] rounded-lg h-[56px] pl-4 dark:border-gray-500 border-gray-400';
+        'flex-row items-center border-[0.5px] rounded-lg h-[56px] pl-4 dark:border-gray-600 border-gray-600';
     return (
         <View className='mb-5'>
             <ThemedText className='mb-2' type='smallTitle'>
-                {props.title}
+                {title}
             </ThemedText>
             <View className={inputStyle}>
                 <Feather
-                    name={props.icon}
+                    name={icon}
                     size={20}
                     color={`${colorScheme === 'dark' ? Colors.dark.secondaryTint : Colors.light.secondaryTint}`}
                 />
                 <TextInput
-                    className='flex-1 ml-3 text-text-light dark:text-text-dark text-lg'
-                    placeholder={props.placeholder}
+                    className='flex-1 px-3 text-text-light dark:text-text-dark text-lg'
+                    keyboardType={keyBoardType}
+                    placeholder={placeholder}
                     placeholderTextColor={
                         colorScheme === 'dark'
                             ? Colors.dark.secondaryTint
@@ -39,7 +64,7 @@ const RTTextField = (props: props) => {
                             ? Colors.dark.secondaryTint
                             : Colors.light.secondaryTint
                     }
-                    secureTextEntry={props.secureTextEntry ?? false}
+                    secureTextEntry={isSecureTextEntry ?? false}
                 />
             </View>
         </View>

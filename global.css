@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --app-secondary: rgb(26, 172, 172);
+
+    --background-primary: rgb(255, 255, 255);
+
+    --heading-primary: #292929;
+    --heading-secondary: gray;
+
+    --label-primary: rgb(41, 41, 41);
+    --label-secondary: rgb(152, 152, 152);
+    --label-danger: rgb(253, 120, 113);
+
+    --btn-primary: rgb(18, 70, 188);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --app-primary: rgb(101, 227, 223);
+        --app-secondary: rgb(18, 70, 188);
+        --app-tertiary: rgb(26, 172, 172);
+
+        --background-primary: rgb(41, 41, 41);
+
+        --heading-primary: #ffffff;
+        --heading-secondary: gray;
+
+        --label-primary: rgb(255, 255, 255);
+        --label-secondary: rgb(152, 152, 152);
+        --label-danger: rgb(253, 120, 113);
+
+        --btn-primary: rgb(101, 227, 223);
+    }
+}
