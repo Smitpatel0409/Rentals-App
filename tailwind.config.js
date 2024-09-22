@@ -1,44 +1,41 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./app/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
+    presets: [require('nativewind/preset')],
     theme: {
         extend: {
             colors: {
-                primary: {
-                    DEFAULT: 'var(--color-primary-default)',
-                    light: 'var(--color-primary-light)'
+                app: {
+                    primary: 'var(--app-primary)',
+                    secondary: 'var(--app-secondary)',
+                    tertiary: 'var(--app-tertiary)'
                 },
-                secondary: {
-                    DEFAULT: 'var(--color-secondary-default)',
-                    light: 'var(--color-secondary-light)'
+                background: {
+                    primary: 'var(--background-primary)'
                 },
-                tertiary: {
-                    DEFAULT: 'var(--color-tertiary-default)',
-                    light: 'var(--color-tertiary-light)'
+                label: {
+                    primary: 'var(--label-primary)',
+                    secondary: 'var(--label-secondary)',
+                    danger: 'var(--label-danger)'
                 },
-                accent: {
-                    DEFAULT: 'var(--color-accent-default)',
-                    light: 'var(--color-accent-light)'
+                heading: {
+                    primary: 'var(--heading-primary)',
+                    secondary: 'var(--heading-secondary)'
                 },
-                grey: {
-                    DEFAULT: 'var(--color-grey-default)'
+                btn: {
+                    primary: 'var(--btn-primary)',
+                    label: {
+                        primary: 'var(--btn-label-primary)'
+                    }
                 },
-                slate: {
-                    DEFAULT: 'var(--color-slate-default)'
-                },
-                dark: {
-                    DEFAULT: 'var(--color-dark-default)'
-                },
-                light: {
-                    DEFAULT: 'var(--color-light-default)'
-                },
-                overlay: 'var(--color-overlay)',
-                rentalsPrimary: '#1246bc', // Add your custom color here
-                rentalsSecondary: '#efefef',
-                'rentals-dark-primary': '#65e3df',
-                'rentals-dark-secondary': '#292929'
+                border: {
+                    primary: 'var(--border-primary)',
+                    onfocus: 'var(--border-onfocus)'
+                }
+
             }
         }
     },
-    plugins: []
+    plugins: [],
+    darkMode: 'media'
 };

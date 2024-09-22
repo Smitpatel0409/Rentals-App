@@ -1,27 +1,36 @@
-// import React, { createContext } from 'react';
-// import { themes } from '@/constants/color-theme';
-// import { View } from 'react-native';
-// import { useColorScheme } from 'nativewind';
+import * as React from 'react';
+import { useColorScheme } from 'nativewind';
+import ThemeContext from '../node_modules/@react-navigation/native/src/theming/ThemeContext';
+import { Theme } from '@react-navigation/native';
 
-// interface ThemeProviderProps {
-//     children: React.ReactNode;
-// }
+type Props = {
+    value: Theme;
+    children: React.ReactNode;
+    colorTheme?: string;
+};
 
-// export const ThemeContext = createContext<{
-//     theme: 'light' | 'dark';
-// }>({
-//     theme: 'light'
-// });
+export default function ThemeProvider({ value, children, colorTheme }: Props) {
+    const { colorScheme: initialColorScheme, setColorScheme } = useColorScheme();
+    const [currentColorScheme, setCurrentColorScheme] = React.useState<'light' | 'dark'>(
+        initialColorScheme
+    );
 
-// export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-//     const { colorScheme } = useColorScheme();
-//     console.log('colorScheme', colorScheme);
+    React.useEffect(() => {
+        if (colorTheme !== undefined) {
+            console.log('colorTheme', colorTheme, 'initialColorScheme', initialColorScheme);
+            setCurrentColorScheme(colorTheme as 'light' | 'dark');
+            setColorScheme(colorTheme as 'light' | 'dark');
+        }
+    }, [colorTheme, setColorScheme]);
 
-//     return (
-//         <ThemeContext.Provider value={{ theme: colorScheme }}>
-//             <View style={themes[colorScheme as keyof typeof themes]} className='flex-1'>
-//                 {children}
-//             </View>
-//         </ThemeContext.Provider>
-//     );
-// };
+    const themeContextValue = React.useMemo(() => {
+        return {
+            ...value,
+            dark: currentColorScheme === 'dark',
+            colors: value.colors
+        };
+    }, [value, currentColorScheme]);
+
+    return <ThemeContext.Provider value={themeContextValue}>{children}</ThemeContext.Provider>;
+}
+
