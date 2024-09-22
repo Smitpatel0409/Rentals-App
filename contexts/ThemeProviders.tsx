@@ -33,3 +33,4 @@ export default function ThemeProvider({ value, children, colorTheme }: Props) {
 
     return <ThemeContext.Provider value={themeContextValue}>{children}</ThemeContext.Provider>;
 }
+

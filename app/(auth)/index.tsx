@@ -128,6 +128,7 @@ const LoginScreen = () => {
                     </View>
                 </View>
             </ScrollView>
+
         </SafeAreaView>
     );
 };
