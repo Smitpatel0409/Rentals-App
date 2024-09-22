@@ -15,10 +15,10 @@ const LoginScreen = () => {
     const colorScheme = useColorScheme();
     const [rememberMeCheck, setRememberMeCheck] = useState(false);
     return (
-        <SafeAreaView className='flex-1 bg-background-primary'>
+        <SafeAreaView style={{ flex: 1 }}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View className='px-4 flex'>
-                    <View className='h-[54px] bg-transparent' />
+                    <View className='h-8 bg-transparent' />
                     <View className='flex flex-row items-center'>
                         <Text className='text-heading-primary font-bold text-[28px]'>
                             Hi, Welcome!
