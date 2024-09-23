@@ -10,6 +10,8 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import RTDarkTheme from '@/utils/RTDarkTheme';
 import RTLightTheme from '@/utils/RTLightTheme';
 import { StatusBar } from 'expo-status-bar';
+import { Provider } from 'react-redux';
+import { rtkStore } from '@/store/rtkStore';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -34,12 +36,14 @@ export default function RootLayout() {
     }
 
     return (
-        <ThemeProvider value={colorScheme === 'dark' ? RTDarkTheme : RTLightTheme}>
-            <StatusBar style='auto' />
-            <Stack>
-                <Stack.Screen name='(auth)' options={{ headerShown: false }} />
-                <Stack.Screen name='+not-found' options={{ animation: 'slide_from_bottom' }} />
-            </Stack>
-        </ThemeProvider>
+        <Provider store={rtkStore}>
+            <ThemeProvider value={colorScheme === 'dark' ? RTDarkTheme : RTLightTheme}>
+                <StatusBar style='auto' />
+                <Stack>
+                    <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+                    <Stack.Screen name='+not-found' options={{ animation: 'slide_from_bottom' }} />
+                </Stack>
+            </ThemeProvider>
+        </Provider>
     );
 }
