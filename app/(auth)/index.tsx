@@ -16,6 +16,7 @@ const LoginScreen = () => {
     const [postUserSignInData] = usePostUserSignInDataMutation();
     const colorScheme = useColorScheme();
     const [rememberMeCheck, setRememberMeCheck] = useState(false);
+    console.log(colorScheme);
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -142,7 +143,6 @@ const LoginScreen = () => {
                     </View>
                 </View>
             </ScrollView>
-
         </SafeAreaView>
     );
 };
