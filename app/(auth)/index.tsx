@@ -10,8 +10,10 @@ import { CheckBox } from '@rneui/themed';
 import { Icon } from '@rneui/base';
 import { Colors } from '@/constants/Colors';
 import { router } from 'expo-router';
+import { usePostUserSignInDataMutation } from '@/store/slices/auth/authApi';
 
 const LoginScreen = () => {
+    const [postUserSignInData] = usePostUserSignInDataMutation();
     const colorScheme = useColorScheme();
     const [rememberMeCheck, setRememberMeCheck] = useState(false);
     return (
@@ -84,6 +86,8 @@ const LoginScreen = () => {
 
                         <Pressable
                             onPress={() => {
+                                console.log('Preseed');
+
                                 router.push('/forgotPassword');
                             }}
                         >
@@ -95,7 +99,17 @@ const LoginScreen = () => {
 
                     <Pressable
                         className='bg-btn-primary flex items-center justify-center h-[60px] rounded-lg mt-8'
-                        onPress={() => {}}
+                        onPress={async () => {
+                            try {
+                                const result = await postUserSignInData({
+                                    email: 'enter email',
+                                    password: 'enter pass'
+                                }).unwrap();
+                                console.log(JSON.stringify(result, null, 2));
+                            } catch (error) {
+                                console.error('Failed to sign in:', error);
+                            }
+                        }}
                     >
                         <Text className='text-btn-label-primary font-semibold text-lg'>
                             Sign in
