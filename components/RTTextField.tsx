@@ -11,6 +11,9 @@ type props = {
     isSecureTextEntry?: boolean;
     isShowAndHidePasswordIconDisplay?: boolean;
     keyBoardType?: KeyboardTypeOptions;
+    value?: string;
+    onChangeText?: (text: string) => void;
+    onBlur?: () => void;
 };
 
 type KeyboardTypeOptions =
@@ -34,7 +37,10 @@ const RTTextField = ({
     placeholder,
     isSecureTextEntry,
     isShowAndHidePasswordIconDisplay,
-    keyBoardType
+    keyBoardType,
+    value,
+    onChangeText,
+    onBlur
 }: props) => {
     const colorScheme = useColorScheme();
     const [isFocused, setIsFocused] = useState(false);
@@ -44,6 +50,7 @@ const RTTextField = ({
     };
     const handleBlur = () => {
         setIsFocused(false);
+        // if (onBlur) onBlur();
     };
 
     const inputStyle = `flex-row items-center border-[0.5px] rounded-lg h-[56px] pl-4 ${isFocused ? 'border-border-onfocus border-[1px]' : 'border-border-primary'} `;
@@ -76,6 +83,8 @@ const RTTextField = ({
                     secureTextEntry={isSecureTextEntry ?? false}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
+                    value={value} // Formik value
+                    onChangeText={onChangeText} // Formik onChange
                 />
             </View>
         </View>

@@ -12,8 +12,9 @@ const ForgotPassword = () => {
         router.back();
     };
     return (
-        // <SafeAreaView style={{ flex: 1 }}>
-        <ScrollView contentContainerStyle={{ flex: 1, justifyContent: 'space-between' }}>
+        <ScrollView
+            contentContainerStyle={{ flex: 1, justifyContent: 'space-between', paddingTop: 8 }}
+        >
             <View className='px-4'>
                 <View>
                     <Text className='text-3xl font-bold text-heading-primary'>
@@ -27,7 +28,12 @@ const ForgotPassword = () => {
                 </View>
 
                 <View className='mt-10'>
-                    <RTTextField title='Email' placeholder='Enter your email' icon='mail' />
+                    <RTTextField
+                        value=''
+                        title='Email'
+                        placeholder='Enter your email'
+                        icon='mail'
+                    />
                 </View>
             </View>
             <View className='my-10 flex items-center px-4'>
@@ -39,7 +45,6 @@ const ForgotPassword = () => {
                 </Pressable>
             </View>
         </ScrollView>
-        // </SafeAreaView>
     );
 };
 

@@ -17,6 +17,7 @@ const LoginScreen = () => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView showsVerticalScrollIndicator={false}>
+                <View className='h-[24px] bg-transparent' />
                 <View className='px-4 flex'>
                     <View className='h-8 bg-transparent' />
                     <View className='flex flex-row items-center'>
@@ -86,6 +87,7 @@ const LoginScreen = () => {
                             onPress={() => {
                                 router.push('/forgotPassword');
                             }}
+                            hitSlop={15}
                         >
                             <Text className='text-label-danger font-semibold'>
                                 Forgot Password?
@@ -110,6 +112,7 @@ const LoginScreen = () => {
                             onPress={() => {
                                 router.push('/register');
                             }}
+                            hitSlop={15}
                         >
                             <Text className='text-btn-primary font-semibold'>Sign up</Text>
                         </Pressable>
@@ -128,7 +131,6 @@ const LoginScreen = () => {
                     </View>
                 </View>
             </ScrollView>
-
         </SafeAreaView>
     );
 };
