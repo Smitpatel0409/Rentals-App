@@ -32,6 +32,7 @@ module.exports = {
                     primary: 'var(--border-primary)',
                     onfocus: 'var(--border-onfocus)'
                 }
+
             }
         }
     },
