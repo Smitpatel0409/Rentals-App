@@ -2,15 +2,16 @@ import { Pressable, ScrollView, Text, useColorScheme, View } from 'react-native'
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HelloWave } from '@/components/HelloWave';
-import RTTextField from '@/components/RTTextField';
-import RTDivider from '@/components/RTDivider';
+import CommonDivider from '@/components/common/CommonDivider';
 import '../../global.css';
-import RTSocialsBtn from '@/components/RTSocialsBtn';
+import CommonSocialsBtn from '@/components/common/CommonSocialsBtn';
 import { CheckBox } from '@rneui/themed';
 import { Icon } from '@rneui/base';
 import { Colors } from '@/constants/Colors';
 import { router } from 'expo-router';
 import { usePostUserSignInDataMutation } from '@/store/slices/auth/authApi';
+import CommonTextField from '@/components/common/CommonTextField';
+import CommonButton from '@/components/common/CommonButton';
 
 const LoginScreen = () => {
     const [postUserSignInData] = usePostUserSignInDataMutation();
@@ -33,8 +34,12 @@ const LoginScreen = () => {
                             Access your account and explore properties effortlessly.
                         </Text>
                     </View>
-                    <RTTextField title='Email' icon='mail' placeholder='Enter your email here' />
-                    <RTTextField
+                    <CommonTextField
+                        title='Email'
+                        icon='mail'
+                        placeholder='Enter your email here'
+                    />
+                    <CommonTextField
                         title='Password'
                         icon='lock'
                         placeholder='Enter your password'
@@ -99,8 +104,8 @@ const LoginScreen = () => {
                         </Pressable>
                     </View>
 
-                    <Pressable
-                        className='bg-btn-primary flex items-center justify-center h-[60px] rounded-lg mt-8'
+                    <CommonButton
+                        btnText='Sign in'
                         onPress={async () => {
                             try {
                                 const result = await postUserSignInData({
@@ -112,12 +117,7 @@ const LoginScreen = () => {
                                 console.error('Failed to sign in:', error);
                             }
                         }}
-                    >
-                        <Text className='text-btn-label-primary font-semibold text-lg'>
-                            Sign in
-                        </Text>
-                    </Pressable>
-
+                    />
                     <View className='flex flex-row items-center justify-center mt-5 gap-2'>
                         <Text className='text-[15px] text-label-primary font-normal'>
                             Don't have an account?
@@ -132,16 +132,16 @@ const LoginScreen = () => {
                         </Pressable>
                     </View>
                     <View className='flex-row items-center w-full mt-36'>
-                        <RTDivider />
+                        <CommonDivider />
                         <Text className='text-label-secondary px-3 bg-background-primary'>
                             Or Sign in with :
                         </Text>
-                        <RTDivider />
+                        <CommonDivider />
                     </View>
                     <View className='flex flex-row gap-10 items-center justify-center my-8'>
-                        <RTSocialsBtn iconName='google' />
-                        <RTSocialsBtn iconName='apple1' />
-                        <RTSocialsBtn iconName='facebook-square' />
+                        <CommonSocialsBtn iconName='google' />
+                        <CommonSocialsBtn iconName='apple1' />
+                        <CommonSocialsBtn iconName='facebook-square' />
                     </View>
                 </View>
             </ScrollView>

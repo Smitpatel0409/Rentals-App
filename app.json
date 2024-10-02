@@ -19,7 +19,8 @@
             "adaptiveIcon": {
                 "foregroundImage": "./assets/images/adaptive-icon.png",
                 "backgroundColor": "#ffffff"
-            }
+            },
+            "package": "com.rentals.RentalsApp"
         },
         "web": {
             "bundler": "metro",
@@ -29,6 +30,11 @@
         "plugins": ["expo-router"],
         "experiments": {
             "typedRoutes": true
+        },
+        "extra": {
+            "eas": {
+                "projectId": "cb2bd8be-8820-4c55-a1d5-3f26a5f6937d"
+            }
         }
     }
 }

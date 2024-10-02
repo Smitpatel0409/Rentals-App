@@ -10,16 +10,17 @@ import {
 import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HelloWave } from '@/components/HelloWave';
-import RTTextField from '@/components/RTTextField';
-import RTDivider from '@/components/RTDivider';
+import CommonDivider from '@/components/common/CommonDivider';
 import '../../global.css';
-import RTSocialsBtn from '@/components/RTSocialsBtn';
+import CommonSocialsBtn from '@/components/common/CommonSocialsBtn';
 import { CheckBox } from '@rneui/themed';
 import { Icon } from '@rneui/base';
 import { Colors } from '@/constants/Colors';
 import { router } from 'expo-router';
 import { Field, Formik } from 'formik';
 import * as Yup from 'yup';
+import CommonTextField from '@/components/common/CommonTextField';
+import CommonButton from '@/components/common/CommonButton';
 
 const validationSchema = Yup.object().shape({
     fullname: Yup.string().required('Fullname is required'),
@@ -58,27 +59,29 @@ const Register = () => {
                                 </Text>
                             </View>
 
-                            <RTTextField
+                            <CommonTextField
                                 title='Fullname'
                                 icon='user'
                                 placeholder='Enter your fullname here'
                                 value={values.fullname}
                                 onChangeText={handleChange('fullname')}
+                                error={errors}
                             />
                             {touched.fullname && errors.fullname && (
                                 <Text style={{ color: 'red' }}>{errors.fullname}</Text>
                             )}
-                            <RTTextField
+                            <CommonTextField
                                 title='Email'
                                 icon='mail'
                                 placeholder='Enter your email here'
                                 value={values.email}
+                                name='email'
                                 onChangeText={handleChange('email')}
                             />
                             {touched.email && errors.email && (
                                 <Text style={{ color: 'red' }}>{errors.email}</Text>
                             )}
-                            <RTTextField
+                            <CommonTextField
                                 title='Password'
                                 icon='lock'
                                 placeholder='Enter your password'
@@ -134,18 +137,7 @@ const Register = () => {
                                     }
                                 />
                             </View>
-
-                            <Pressable
-                                className='bg-btn-primary flex items-center justify-center h-[60px] rounded-lg mt-8'
-                                onPress={() => {
-                                    handleSubmit();
-                                }}
-                            >
-                                <Text className='text-btn-label-primary font-semibold text-lg'>
-                                    Sign up
-                                </Text>
-                            </Pressable>
-
+                            <CommonButton onPress={handleSubmit} btnText='Sign Up' />
                             <View className='flex flex-row items-center justify-center mt-5 gap-2'>
                                 <Text className='text-[15px] text-label-primary font-normal'>
                                     Already have an account?
@@ -162,16 +154,16 @@ const Register = () => {
                                 </Pressable>
                             </View>
                             <View className='flex-row items-center w-full mt-8'>
-                                <RTDivider />
+                                <CommonDivider />
                                 <Text className='text-label-secondary px-3 bg-background-primary'>
                                     Or Sign up with :
                                 </Text>
-                                <RTDivider />
+                                <CommonDivider />
                             </View>
                             <View className='flex flex-row gap-10 items-center justify-center my-8'>
-                                <RTSocialsBtn iconName='google' />
-                                <RTSocialsBtn iconName='apple1' />
-                                <RTSocialsBtn iconName='facebook-square' />
+                                <CommonSocialsBtn iconName='google' />
+                                <CommonSocialsBtn iconName='apple1' />
+                                <CommonSocialsBtn iconName='facebook-square' />
                             </View>
                         </View>
                     )}

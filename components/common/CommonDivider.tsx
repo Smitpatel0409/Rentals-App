@@ -7,7 +7,7 @@ interface DividerProps {
     marginVertical?: string;
 }
 
-const RTDivider: React.FC<DividerProps> = ({
+const CommonDivider: React.FC<DividerProps> = ({
     color = 'border-gray-300',
     thickness = '0.5',
     marginVertical = '0'
@@ -15,6 +15,6 @@ const RTDivider: React.FC<DividerProps> = ({
     return <View className={`flex-1 h-[0.8px] w-full bg-[#3d3d3d] my-[${marginVertical}px]`} />;
 };
 
-export default RTDivider;
+export default CommonDivider;
 
 const styles = StyleSheet.create({});

@@ -1,6 +1,6 @@
 import { StyleSheet, TextInput, useColorScheme, View } from 'react-native';
 import React, { useState } from 'react';
-import { ThemedText } from './ThemedText';
+import { ThemedText } from '../ThemedText';
 import Feather from '@expo/vector-icons/Feather';
 import { Colors } from '@/constants/Colors';
 
@@ -8,10 +8,12 @@ type props = {
     title: string;
     icon: keyof typeof Feather.glyphMap;
     placeholder: string;
+    name?: string;
     isSecureTextEntry?: boolean;
     isShowAndHidePasswordIconDisplay?: boolean;
     keyBoardType?: KeyboardTypeOptions;
     value?: string;
+    error?: string;
     onChangeText?: (text: string) => void;
     onBlur?: () => void;
 };
@@ -31,9 +33,11 @@ type KeyboardTypeOptions =
     | 'web-search'
     | 'visible-password';
 
-const RTTextField = ({
+const CommonTextField = ({
     title,
     icon,
+    name,
+    error,
     placeholder,
     isSecureTextEntry,
     isShowAndHidePasswordIconDisplay,
@@ -91,6 +95,6 @@ const RTTextField = ({
     );
 };
 
-export default RTTextField;
+export default CommonTextField;
 
 const styles = StyleSheet.create({});

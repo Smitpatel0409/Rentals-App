@@ -9,7 +9,7 @@ interface SocialsProps {
     onPress?: () => void;
 }
 
-const RTSocialsBtn = ({ iconName, size = '24' }: SocialsProps) => {
+const CommonSocialsBtn = ({ iconName, size = '24' }: SocialsProps) => {
     const colorScheme = useColorScheme();
     return (
         <Pressable className='w-50 h-50 p-4 border-[0.5px] dark:border-gray-600 border-gray-400 rounded-xl'>
@@ -22,6 +22,6 @@ const RTSocialsBtn = ({ iconName, size = '24' }: SocialsProps) => {
     );
 };
 
-export default RTSocialsBtn;
+export default CommonSocialsBtn;
 
 const styles = StyleSheet.create({});
