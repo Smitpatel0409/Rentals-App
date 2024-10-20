@@ -37,7 +37,7 @@ const LoginScreen = () => {
                     <RTTextField
                         title='Password'
                         icon='lock'
-                        placeholder='Enter your password'
+                        placeholder='Enter your password here'
                         isSecureTextEntry={true}
                     />
 
