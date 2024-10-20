@@ -9,7 +9,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import RTDarkTheme from '@/utils/RTDarkTheme';
 import RTLightTheme from '@/utils/RTLightTheme';
 import { StatusBar } from 'expo-status-bar';
-import { Provider } from 'react-redux';
+
 import { rtkStore } from '@/store/rtkStore';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.

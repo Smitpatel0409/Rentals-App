@@ -25,7 +25,7 @@ const LoginScreen = () => {
                     <View className='h-8 bg-transparent' />
                     <View className='flex flex-row items-center'>
                         <Text className='text-heading-primary font-bold text-[28px]'>
-                            Hi, Welcome!
+                            Hi, Welcome! 👋
                         </Text>
                         <HelloWave />
                     </View>
