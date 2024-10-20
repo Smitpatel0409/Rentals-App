@@ -37,7 +37,7 @@ const LoginScreen = () => {
                     <CommonTextField
                         title='Email'
                         icon='mail'
-                        placeholder='Enter your email here'
+                        placeholder='Enter your email here using @gmail.com'
                     />
                     <CommonTextField
                         title='Password'
